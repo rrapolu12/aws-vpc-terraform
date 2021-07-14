@@ -1,0 +1,6 @@
+region                  = "eu-west-2"
+environment             = "AT"
+vpc_cidr                = "100.100.0.0/16"
+public_subnets_cidr     = ""
+private_subnets_cidr    = ""
+availability_zones      = ""
