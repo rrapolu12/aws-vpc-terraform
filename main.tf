@@ -327,7 +327,7 @@ resource "aws_instance" "ansibletower-vm" {
   instance_type = "${var.instance_type}"
   
   #subnet_id = "aws_subnet.public_subnet[id]"
-  subnet_id = "subnet-011f4f410b83942dc"
+  subnet_id = "subnet-054aee1c44e7647f6"
   #"${element(aws_subnet.public_subnet.*.id, count.index)}"
 
   # Keyname and security group are obtained from the reference of their instances created above!
@@ -357,7 +357,13 @@ resource "aws_instance" "ansibletower-vm" {
         "alternatives — set python /usr/bin/python3",
         "sudo yum install python3-pip -y",
         "pip2 install ansible --user",
-        "ansible version"
+        "ansible version",
+        "sudo yum install wget -y",
+        "mkdir ansibletowerinstall",
+        "cd ansibletowerinstall",
+        "wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz",
+        "tar xvzf ansible-tower-setup-latest.tar.gz",
+        "cd ansible-tower-setup-latest"
 
     ]
   }
