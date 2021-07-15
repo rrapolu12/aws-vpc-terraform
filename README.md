@@ -10,3 +10,9 @@
         6. AWS VPC NAT Gateway.
         7. Associating AWS VPC Subnets with VPC route tables.
 
+## AWS Credentials Setup
+# DONOT ADD AWS ACCES AND SECRET TO Github 
+###  if you are using access and secret key as part of provider.tf, becareful when you checkin your code.
+### if your secrets are exposed aws will suspend your account immediately.
+
+### Best way, is to configure your AWS CLI on your local, so that your terraform will pickup from ~/.aws/credentails and ~/.aws/config
