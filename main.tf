@@ -362,8 +362,7 @@ resource "aws_instance" "ansibletower-vm" {
         "mkdir ansibletowerinstall",
         "cd ansibletowerinstall",
         "wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz",
-        "tar xvzf ansible-tower-setup-latest.tar.gz",
-        "cd ansible-tower-setup-latest"
+        "tar xvzf ansible-tower-setup-latest.tar.gz"
 
     ]
   }
