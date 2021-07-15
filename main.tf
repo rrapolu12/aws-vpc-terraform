@@ -327,12 +327,12 @@ resource "aws_instance" "ansibletower-vm" {
   instance_type = "${var.instance_type}"
   
   #subnet_id = "aws_subnet.public_subnet[id]"
-  subnet_id = "subnet-054aee1c44e7647f6"
+  subnet_id = "${element(aws_subnet.public_subnet.*.id, 0)}"
   #"${element(aws_subnet.public_subnet.*.id, count.index)}"
 
   # Keyname and security group are obtained from the reference of their instances created above!
   # Here I am providing the name of the key which is already uploaded on the AWS console.
-  key_name = "ram-ansibletower"
+  key_name = "${var.key_name}"
   
   # Security groups to use!
   vpc_security_group_ids = [aws_security_group.ANSIBLETOWER-SG.id]
@@ -345,7 +345,7 @@ resource "aws_instance" "ansibletower-vm" {
   connection {
     type = "ssh"
     user = "ec2-user"
-    private_key = file("/home/centos/aws-ansibletower/ram-ansibletower.pem")
+    private_key = file("${var.key_location}")
     host = aws_instance.ansibletower-vm.public_ip
   }
 
